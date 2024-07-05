@@ -20,6 +20,7 @@ body {
     width: 100vw;
     height: 100vh;
     display: flex;
+    flex-flow: row wrap;
 }
 
 .wallpaper-container {
@@ -41,6 +42,10 @@ body {
 form {
     display: flex;
     column-gap: 10em;
+    flex-flow: row wrap;
+    position: relative;
+    row-gap: 2em;
+    justify-content: center;
 }
 
 form > div {
@@ -50,8 +55,8 @@ form > div {
 }
 
 input {
-    width: 200px;
-    height: 25px;
+    width: 250px;
+    height: 28px;
 }
 
 h1 {
@@ -64,4 +69,14 @@ h3 {
     align-self: center;
     padding: 1.5rem;
     font-size: 1.3rem;
+}
+
+form > h3 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0;
+    margin-top: -3em;
+    font-size: 2.7rem;
+    text-align: center;
 }
