@@ -24,6 +24,11 @@ body {
 
 .wallpaper-container {
     background-color: var(--wallpaper-background-color);
+    flex: 1;
+}
+
+.form-container {
+    flex: 2;
 }
 
 h1 {
