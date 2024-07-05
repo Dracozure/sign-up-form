@@ -29,8 +29,29 @@ body {
     flex-flow: column wrap;
 }
 
+/* Form Section */
+
 .form-container {
     flex: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form {
+    display: flex;
+    column-gap: 10em;
+}
+
+form > div {
+    display: flex;
+    flex-direction: column;
+    row-gap: 2em;
+}
+
+input {
+    width: 200px;
+    height: 25px;
 }
 
 h1 {
@@ -38,7 +59,9 @@ h1 {
 }
 
 h3 {
-    padding: calc(var(--padding) - 10px);
+    justify-self: flex-end;
     margin-top: auto;
     align-self: center;
+    padding: 1.5rem;
+    font-size: 1.3rem;
 }
