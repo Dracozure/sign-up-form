@@ -8,7 +8,7 @@
     --form-background-color: white;
     --text-color: black;
     --wallpaper-background-color: green;
-    --padding: 2em;
+    --padding: 0.9em;
 }
 
 :root.dark {
@@ -25,6 +25,8 @@ body {
 .wallpaper-container {
     background-color: var(--wallpaper-background-color);
     flex: 1;
+    display: flex;
+    flex-flow: column wrap;
 }
 
 .form-container {
@@ -37,4 +39,6 @@ h1 {
 
 h3 {
     padding: calc(var(--padding) - 10px);
+    margin-top: auto;
+    align-self: center;
 }
