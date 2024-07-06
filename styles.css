@@ -60,6 +60,12 @@ body {
     letter-spacing: var(--letter-spacing);
 }
 
+.wallpaper-container h3 {
+    text-align: center;
+    margin-top: auto;
+    padding-bottom: 1.5rem;
+}
+
 /* Form Section */
 
 .form-container {
@@ -107,7 +113,7 @@ h3 {
 
 /* Form Inputs Section */
 
-form h3 {
+form > h3 {
     --title-font-size: 2.7rem;
     --title-padding: 0;
 }
