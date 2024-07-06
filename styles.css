@@ -19,6 +19,7 @@
     --letter-spacing: 0.5ch;
     --label-margin-bottom: -10px;
     --label-padding: 10px;
+    --div-display: flex;
 
     font-family: "Helvetica Neue", sans-serif;
 }
@@ -39,9 +40,9 @@ body {
 
 .wallpaper-container {
     --letter-spacing: 0.2ch;
-    
+
     background-color: var(--wallpaper-background-color);
-    flex: 1;
+    flex: 2;
     display: flex;
     flex-flow: column wrap;
 }
@@ -54,25 +55,31 @@ body {
 /* Form Section */
 
 .form-container {
-    flex: 2;
-    display: flex;
+    display: var(--div-display);
+    flex: 3;
     justify-content: center;
     align-items: center;
 }
 
 form {
+    display: var(--div-display);
     position: relative;
-    display: flex;
     column-gap: 12em;
     row-gap: 4em;
-    flex-flow: row wrap;
-    justify-content: center;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
-form > div {
-    display: flex;
+div.input-container {
+    display: var(--div-display);
+    column-gap: 10rem;
+}
+
+div.form-col-1,
+div.form-col-2 {
+    display: var(--div-display);
     flex-direction: column;
-    row-gap: 4em;
+    row-gap: 4rem;
 }
 
 h1 {
@@ -80,28 +87,23 @@ h1 {
 }
 
 h3 {
+    --letter-spacing: 0.3ch;
+
     justify-self: flex-end;
     margin-top: auto;
     align-self: center;
     padding: 1.5rem;
     font-size: 1.3rem;
+    letter-spacing: var(--letter-spacing);
 }
 
 /* Form Inputs Section */
 
 form > h3 {
-    position: absolute;
-    top: 0;
-    left: 0;
     padding: 0;
-    margin-top: -3em;
+    align-self: flex-start;
     font-size: 2.7rem;
     text-align: center;
-}
-
-form > div > div {
-    display: flex;
-    align-items: center;
 }
 
 input {
@@ -151,5 +153,5 @@ div:focus-within > label {
     --font-size: 0.85rem;
     --label-font-weight: bold;
 
-    transform: translateY(-1.81em);
+    transform: translateY(-1.35em);
 }
