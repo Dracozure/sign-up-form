@@ -206,6 +206,6 @@ div.input-tip {
     color: rgb(110, 107, 107);
 }
 
-div.input-tip.active {
+div.input-tip.active:not(.block) {
     --tip-opacity: 1;
 }
