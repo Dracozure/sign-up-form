@@ -10,16 +10,24 @@
 }
 
 :root {
+    --div-display: flex;
+    --title-padding: 1.5rem;
+    --title-font-size: 1.3rem;
+
     --form-background-color: #ffffff;
     --text-color: #000000;
     --wallpaper-background-color: #8fcf8f;
+    --row-gap: 4em;
+    --column-gap: 12em;
+
     --padding: 0.9em;
-    --border-style: transparent;
-    --border-color: #a79494;
     --letter-spacing: 0.5ch;
+
     --label-margin-bottom: -10px;
     --label-padding: 10px;
-    --div-display: flex;
+
+    --border-style: transparent;
+    --border-color: #a79494;
 
     font-family: "Helvetica Neue", sans-serif;
 }
@@ -62,24 +70,26 @@ body {
 }
 
 form {
-    display: var(--div-display);
     position: relative;
-    column-gap: 12em;
-    row-gap: 4em;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    display: var(--div-display);
+    gap: var(--row-gap) var(--column-gap);
+    padding: calc(var(--padding) + 5px);
 }
 
 div.input-container {
     display: var(--div-display);
-    column-gap: 10rem;
+    flex-wrap: wrap;
+    gap: inherit;
+    justify-content: center;
 }
 
 div.form-col-1,
 div.form-col-2 {
-    display: var(--div-display);
     flex-direction: column;
-    row-gap: 4rem;
+    display: var(--div-display);
+    row-gap: var(--row-gap);
 }
 
 h1 {
@@ -89,19 +99,17 @@ h1 {
 h3 {
     --letter-spacing: 0.3ch;
 
-    justify-self: flex-end;
-    margin-top: auto;
-    align-self: center;
-    padding: 1.5rem;
-    font-size: 1.3rem;
+    padding: var(--title-padding);
+    font-size: var(--title-font-size);
     letter-spacing: var(--letter-spacing);
+
 }
 
 /* Form Inputs Section */
 
-form > h3 {
-    padding: 0;
-    font-size: 2.7rem;
+form h3 {
+    --title-font-size: 2.7rem;
+    --title-padding: 0;
 }
 
 input {
@@ -143,7 +151,7 @@ label {
     transition: all 0.3s;
 }
 
-div:not(:focus-within) > label:not([for="phone"])::before {
+div:not(:focus-within) label:not([for="phone"])::before {
     position: absolute;
     left: -5px;
     content: "*";
