@@ -132,6 +132,7 @@ input {
     transition: border 0.6s;
 }
 
+input:not(:placeholder-shown),
 input:focus {
     --border-style: 1px solid var(--border-color);
     --border-color: #000000;
@@ -157,12 +158,7 @@ label {
     transition: all 0.3s;
 }
 
-div:not(:focus-within) label:not([for="phone"])::before {
-    position: absolute;
-    left: -5px;
-    content: "*";
-}
-
+label:has(+ input:not(:placeholder-shown)),
 div:focus-within > label {
     --label-margin-bottom: 0px;
     --label-padding: 0.3rem 0.6rem;
@@ -172,4 +168,18 @@ div:focus-within > label {
     --label-font-weight: bold;
 
     transform: translateY(-1.35em);
+}
+
+/* If input is empty and isn't type "tel" */
+div:not(:focus-within) > 
+label:has(+ input:placeholder-shown):not([for="phone"])::before {
+    position: absolute;
+    left: -5px;
+    content: "*";
+}
+
+/* Form Validation Section */
+
+label:has(+ input:not(:placeholder-shown):not(:focus):invalid) {
+    --label-background-color: #ee4e4e;
 }
