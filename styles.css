@@ -35,11 +35,20 @@ body {
     flex-flow: row wrap;
 }
 
+/* Wallpaper Section */
+
 .wallpaper-container {
+    --letter-spacing: 0.2ch;
+    
     background-color: var(--wallpaper-background-color);
     flex: 1;
     display: flex;
     flex-flow: column wrap;
+}
+
+.wallpaper-container h1,
+.wallpaper-container h3 {
+    letter-spacing: var(--letter-spacing);
 }
 
 /* Form Section */
