@@ -6,9 +6,11 @@
 
 :root {
     --form-background-color: white;
-    --text-color: black;
-    --wallpaper-background-color: green;
+    --text-color: #000000;
+    --wallpaper-background-color: #008000;
     --padding: 0.9em;
+    --border-style: transparent;
+    --border-color: #000000;
 }
 
 :root.dark {
@@ -72,8 +74,21 @@ input {
     width: 300px;
     height: 35px;
     appearance: none;
+    -webkit-appearance: none;
     padding: 10px;
     font-size: 1.1rem;
+    outline: none;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    border-top: var(--border-style);
+    border-left: var(--border-style);
+    border-right: var(--border-style);
+    transition: border 0.6s;
+}
+
+form:focus-within {
+    --border-style: 1px solid var(--border-color);
+    --border-color: #ff0000;
 }
 
 form > h3 {
