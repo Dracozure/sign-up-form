@@ -42,16 +42,16 @@ body {
 form {
     position: relative;
     display: flex;
-    column-gap: 10em;
+    column-gap: 12em;
+    row-gap: 4em;
     flex-flow: row wrap;
-    row-gap: 2em;
     justify-content: center;
 }
 
 form > div {
     display: flex;
     flex-direction: column;
-    row-gap: 2em;
+    row-gap: 4em;
 }
 
 h1 {
@@ -72,6 +72,8 @@ input {
     width: 300px;
     height: 35px;
     appearance: none;
+    padding: 10px;
+    font-size: 1.1rem;
 }
 
 form > h3 {
@@ -100,11 +102,11 @@ label {
     cursor: text;
 }
 
-form > div > div:focus-within > label {
+div:focus-within > label {
     border-radius: 3px;
     margin-left: 6px;
     font-size: 0.9rem;
     padding: 0.15em 0.3em;
     background-color: green;
-    transform: translateY(-1.3em);
+    transform: translateY(-1.6em);
 }
