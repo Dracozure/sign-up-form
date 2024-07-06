@@ -193,7 +193,7 @@ div.input-tip {
     --margin-right: 0.7rem;
     --text-align: right;
     --text-wrap: nowrap;
-    --tip-opacity: 0;
+    --tip-opacity: 1;
 
     position: relative;
     opacity: var(--tip-opacity);
