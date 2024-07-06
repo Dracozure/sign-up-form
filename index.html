@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign-Up Form</title>
     <link rel="stylesheet" href="./styles.css">
+    <script src="./script.js" defer></script>
 </head>
 <body>
     <div class="wallpaper-container">
@@ -19,33 +20,45 @@
             <div class="input-container">
                 <div class="form-col-1">
                     <div>
+                        <div class="input-tip">Ex: Marley</div>
                         <label for="first">FIRST NAME</label>
                         <input placeholder="" type="text" id="first" name="last" required pattern="[a-zA-Z]+" minlength="2">
+                        <div class="input-warning"></div>
                     </div>
                     <div>
+                        <div class="input-tip">Ex: Anderson</div>
                         <label for="last">LAST NAME</label>
                         <input placeholder="" type="text" id="last" name="last" required pattern="[a-zA-Z]+" minlength="2">
+                        <div class="input-warning"></div>
                     </div>
                     <div>
+                        <div class="input-tip">example1@gmail.com</div>
                         <label for="email">E-MAIL</label>
                         <input placeholder="" type="email" id="email" name="email" required 
                         pattern="[^@]+@[^@]+\.[a-zA-Z]{2,6}">
+                        <div class="input-warning"></div>
                     </div>
                 </div>
                 <div class="form-col-2">
                     <div>
+                        <div class="input-tip">123-456-7890</div>
                         <label for="phone">PHONE</label>
                         <input placeholder="" type="tel" id="phone" name="phone"
                         pattern="[0-9]{3}-?[0-9]{3}-?[0-9]{4}">
+                        <div class="input-warning"></div>
                     </div>
                     <div>
+                        <div class="input-tip"></div>
                         <label for="pwd">PASSWORD</label>
                         <input placeholder="" type="password" id="pwd" name="pwd" required
                         pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$">
+                        <div class="input-warning"></div>
                     </div>
                     <div>
+                        <div class="input-tip"></div>
                         <label for="confirm-pwd">CONFIRM PASSWORD</label>
                         <input placeholder="" type="password" id="confirm-pwd" name="confirm-pwd" required>
+                        <div class="input-warning"></div>
                     </div>
                 </div>
             </div>

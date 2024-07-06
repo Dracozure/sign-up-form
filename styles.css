@@ -183,3 +183,29 @@ label:has(+ input:placeholder-shown):not([for="phone"])::before {
 label:has(+ input:not(:placeholder-shown):not(:focus):invalid) {
     --label-background-color: #ee4e4e;
 }
+
+/* Form Input Tip Section */
+
+div.input-tip {
+    --letter-spacing: 0.15ch;
+    --font-size: 1.1rem;
+    --margin-bottom: 5px;
+    --margin-right: 0.7rem;
+    --text-align: right;
+    --text-wrap: nowrap;
+    --tip-opacity: 0;
+
+    position: relative;
+    opacity: var(--tip-opacity);
+    font-size: var(--font-size);
+    margin-bottom: var(--margin-bottom);
+    margin-right: var(--margin-right);
+    letter-spacing: var(--letter-spacing);
+    text-align: var(--text-align);
+    text-wrap: var(--text-wrap);
+    color: rgb(110, 107, 107);
+}
+
+div.input-tip.active {
+    --tip-opacity: 1;
+}
