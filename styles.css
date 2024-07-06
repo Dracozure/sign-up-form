@@ -4,13 +4,23 @@
     margin: 0;
 }
 
+@font-face {
+    font-family: "Helvetica Neue";
+    src: url(./assets/fonts/HelveticaNeueThin.woff2)format("woff2");
+}
+
 :root {
-    --form-background-color: white;
+    --form-background-color: #ffffff;
     --text-color: #000000;
-    --wallpaper-background-color: #008000;
+    --wallpaper-background-color: #8fcf8f;
     --padding: 0.9em;
     --border-style: transparent;
-    --border-color: #000000;
+    --border-color: #a79494;
+    --letter-spacing: 0.5ch;
+    --label-margin-bottom: -10px;
+    --label-padding: 10px;
+
+    font-family: "Helvetica Neue", sans-serif;
 }
 
 :root.dark {
@@ -19,9 +29,9 @@
 }
 
 body {
+    display: flex;
     width: 100vw;
     height: 100vh;
-    display: flex;
     flex-flow: row wrap;
 }
 
@@ -70,27 +80,6 @@ h3 {
 
 /* Form Inputs Section */
 
-input {
-    width: 300px;
-    height: 35px;
-    appearance: none;
-    -webkit-appearance: none;
-    padding: 10px;
-    font-size: 1.1rem;
-    outline: none;
-    border-radius: 6px;
-    border: 1px solid var(--border-color);
-    border-top: var(--border-style);
-    border-left: var(--border-style);
-    border-right: var(--border-style);
-    transition: border 0.6s;
-}
-
-form:focus-within {
-    --border-style: 1px solid var(--border-color);
-    --border-color: #ff0000;
-}
-
 form > h3 {
     position: absolute;
     top: 0;
@@ -101,27 +90,57 @@ form > h3 {
     text-align: center;
 }
 
-label {
-    position: absolute;
-    text-align: center;
-}
-
 form > div > div {
     display: flex;
     align-items: center;
 }
 
-label {
+input {
+    width: 300px;
+    height: 35px;
+    appearance: none;
+    -webkit-appearance: none;
     padding: 10px;
+    font-size: 1.1rem;
+    outline: none;
+    border-radius: 6px;
+    border: transparent;
+    border-bottom: 1px solid var(--border-color);
+    transition: border 0.6s;
+}
+
+input:focus {
+    --border-style: 1px solid var(--border-color);
+    --border-color: #000000;
+
+    border-top: var(--border-style);
+    border-left: var(--border-style);
+    border-right: var(--border-style);
+}
+
+label {
+    position: absolute;
+    user-select: none;
+    text-align: center;
     transition: all .4s;
+    border-radius: 3px;
     cursor: text;
+    padding: var(--label-padding);
+    margin-bottom: var(--label-margin-bottom);
+    letter-spacing: var(--letter-spacing);
+    background-color: var(--label-background-color);
+    margin-left: var(--label-margin-left);
+    font-size: var(--font-size);
+    font-weight: var(--label-font-weight);
 }
 
 div:focus-within > label {
-    border-radius: 3px;
-    margin-left: 6px;
-    font-size: 0.9rem;
-    padding: 0.15em 0.3em;
-    background-color: green;
-    transform: translateY(-1.6em);
+    --label-margin-bottom: 0px;
+    --label-padding: 0.3rem 0.6rem;
+    --label-background-color: lightgreen;
+    --label-margin-left: 6px;
+    --font-size: 0.85rem;
+    --label-font-weight: bold;
+
+    transform: translateY(-1.81em);
 }
