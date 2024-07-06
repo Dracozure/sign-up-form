@@ -204,6 +204,7 @@ div.input-tip {
     text-align: var(--text-align);
     text-wrap: var(--text-wrap);
     color: rgb(110, 107, 107);
+    transition: opacity 0.8s;
 }
 
 div.input-tip.active:not(.block) {
