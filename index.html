@@ -20,11 +20,11 @@
                 <div class="form-col-1">
                     <div>
                         <label for="first">FIRST NAME</label>
-                        <input placeholder="" type="text" id="first" name="last" required>
+                        <input placeholder="" type="text" id="first" name="last" required pattern="[a-zA-Z]+" minlength="2">
                     </div>
                     <div>
                         <label for="last">LAST NAME</label>
-                        <input placeholder="" type="text" id="last" name="last" required>
+                        <input placeholder="" type="text" id="last" name="last" required pattern="[a-zA-Z]+" minlength="2">
                     </div>
                     <div>
                         <label for="email">E-MAIL</label>
@@ -35,7 +35,8 @@
                 <div class="form-col-2">
                     <div>
                         <label for="phone">PHONE</label>
-                        <input placeholder="" type="tel" id="phone" name="phone">
+                        <input placeholder="" type="tel" id="phone" name="phone"
+                        pattern="[0-9]{3}-?[0-9]{3}-?[0-9]{4}">
                     </div>
                     <div>
                         <label for="pwd">PASSWORD</label>
