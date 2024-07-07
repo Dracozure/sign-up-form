@@ -51,7 +51,7 @@
                         <div class="block input-tip"></div>
                         <label for="pwd">PASSWORD</label>
                         <input placeholder="" type="password" id="pwd" name="pwd" required
-                        pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$">
+                        pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\da-zA-Z]).{8,}$">
                         <div class="input-warning"></div>
                     </div>
                     <div>

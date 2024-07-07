@@ -186,21 +186,23 @@ label:has(+ input:not(:placeholder-shown):not(:focus):invalid) {
 
 /* Form Input Tip Section */
 
-.form-col-1 > div {
+.form-col-1 > div,
+.form-col-2 >div {
     position: relative;
 }
 
 div.input-tip {
     --letter-spacing: 0.15ch;
     --font-size: 1.1rem;
-    --margin-bottom: 2.4rem;
-    --margin-right: 0.7rem;
+    --margin-bottom: 2.45rem;
+    --margin-right: 0.8rem;
     --text-wrap: nowrap;
     --tip-opacity: 1;
 
     position: absolute;
     display: inline-block;
     width: 100%;
+    margin-right: var(--margin-right);
     max-width: min-content;
     text-wrap: var(--text-wrap);
     opacity: var(--tip-opacity);
@@ -223,10 +225,22 @@ div.input-tip.active:not(.block) {
     animation-delay: 1s;
 }
 
+@keyframes typing {
+    from { width: 0 }
+}
+
 div.input-tip.first::after {
     content: "Ex: Marley";
 }
 
-@keyframes typing {
-    from { width: 0 }
+div.input-tip.last::after {
+    content: "Ex: Anderson";
+}
+
+div.input-tip.email::after {
+    content: "example1@gmail.com";
+}
+
+div.input-tip.phone::after {
+    content: "123-456-7890";
 }
