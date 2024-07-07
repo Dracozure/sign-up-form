@@ -186,30 +186,47 @@ label:has(+ input:not(:placeholder-shown):not(:focus):invalid) {
 
 /* Form Input Tip Section */
 
+.form-col-1 > div {
+    position: relative;
+}
+
 div.input-tip {
     --letter-spacing: 0.15ch;
     --font-size: 1.1rem;
-    --margin-bottom: 5px;
+    --margin-bottom: 2.4rem;
     --margin-right: 0.7rem;
-    --text-align: right;
     --text-wrap: nowrap;
-    --tip-opacity: 0;
+    --tip-opacity: 1;
 
-    position: relative;
+    position: absolute;
+    display: inline-block;
+    width: 100%;
+    max-width: min-content;
+    text-wrap: var(--text-wrap);
     opacity: var(--tip-opacity);
     font-size: var(--font-size);
-    margin-bottom: var(--margin-bottom);
-    margin-right: var(--margin-right);
     letter-spacing: var(--letter-spacing);
-    text-align: var(--text-align);
-    text-wrap: var(--text-wrap);
     color: rgb(110, 107, 107);
     transition-delay: 5s;
     transition: opacity 0.8s;
+    right: 0;
+    bottom: var(--margin-bottom);
 }
 
 div.input-tip.active:not(.block) {
     --tip-opacity: 1;
-
     transition-delay: 4s;
+
+    overflow: hidden;
+    white-space: nowrap;
+    animation: typing 2s alternate-reverse infinite cubic-bezier(1, 0.69, 0.68, 0.99);
+    animation-delay: 1s;
+}
+
+div.input-tip.first::after {
+    content: "Ex: Marley";
+}
+
+@keyframes typing {
+    from { width: 0 }
 }
