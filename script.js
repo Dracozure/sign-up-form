@@ -31,6 +31,15 @@ inputs.forEach(input => {
         animationIteration = 0;
     });
 
+    input.addEventListener('input', (event) => {
+        if (event.target.validity.valid) {
+            const inputTipElement = input.parentElement.querySelector('.input-tip');
+
+            inputTipElement.classList.remove('active');
+            animationIteration = 0;
+        }
+    });
+
     input.parentElement.querySelector('.input-tip').addEventListener('animationiteration', (event) => {
         const inputTipElement = input.parentElement.querySelector('.input-tip');
         const inputTipContent = inputTipElement.getAttribute('data-after');
