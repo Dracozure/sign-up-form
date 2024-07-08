@@ -15,12 +15,12 @@
     --title-font-size: 1.3rem;
 
     --form-background-color: #ffffff;
-    --text-color: #000000;
     --wallpaper-background-color: #8fcf8f;
-    --row-gap: 4em;
+    --text-color: #6e6b6b;
+    --row-gap: 5em;
     --column-gap: 12em;
 
-    --padding: 0.9em;
+    --padding: 1.8em;
     --letter-spacing: 0.5ch;
 
     --label-margin-bottom: -10px;
@@ -38,8 +38,8 @@
 }
 
 :root.dark {
-    --form-background-color: black;
-    --text-color: white;
+    --form-background-color: #000000;
+    --text-color: #ffffff;
 }
 
 body {
@@ -213,7 +213,7 @@ div.input-tip {
     opacity: var(--tip-opacity);
     font-size: var(--font-size);
     letter-spacing: var(--letter-spacing);
-    color: rgb(110, 107, 107);
+    color: var(--text-color);
     transition-delay: 5s;
     transition: opacity 0.8s;
     right: 0;
