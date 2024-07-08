@@ -29,6 +29,11 @@
     --border-style: transparent;
     --border-color: #a79494;
 
+    --input-tip-first: "Ex: Marley";
+    --input-tip-last: "Ex: Anderson";
+    --input-tip-email: "example1@gmail.com";
+    --input-tip-phone: "123-456-7890";
+
     font-family: "Helvetica Neue", sans-serif;
 }
 
@@ -197,7 +202,7 @@ div.input-tip {
     --margin-bottom: 2.45rem;
     --margin-right: 0.8rem;
     --text-wrap: nowrap;
-    --tip-opacity: 1;
+    --tip-opacity: 0;
 
     position: absolute;
     display: inline-block;
@@ -221,26 +226,39 @@ div.input-tip.active:not(.block) {
 
     overflow: hidden;
     white-space: nowrap;
-    animation: typing 2s alternate-reverse infinite cubic-bezier(1, 0.69, 0.68, 0.99);
-    animation-delay: 1s;
+
+    animation-name: translate-text, typing;
+    animation-duration: 12s, 6s;
+    animation-iteration-count: infinite, infinite;
+    animation-direction: normal, alternate;
+    animation-timing-function: linear, linear;
+    animation-delay: 9s, 9s;
 }
 
-@keyframes typing {
-    from { width: 0 }
+@keyframes translate-text {
+    1% { transform: translateX(3px); }
+    2% { transform: translateX(0px); }
+    4% { transform: translateX(3px); }
+    5% { transform: translateX(0px); }
+}
+
+@keyframes typing { 
+    70% { width: 100%; }
+    100% { width: 0; }
 }
 
 div.input-tip.first::after {
-    content: "Ex: Marley";
+    content: attr(data-after);
 }
 
 div.input-tip.last::after {
-    content: "Ex: Anderson";
+    content: attr(data-after);
 }
 
 div.input-tip.email::after {
-    content: "example1@gmail.com";
+    content: attr(data-after);
 }
 
 div.input-tip.phone::after {
-    content: "123-456-7890";
+    content: attr(data-after);
 }
