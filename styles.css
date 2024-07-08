@@ -254,6 +254,8 @@ div.input-tip {
     --margin-right: 0.8rem;
     --text-wrap: nowrap;
     --tip-opacity: 0;
+    --transition-input-tip: opacity 0s;
+    --transition-delay: 0;
 
     position: absolute;
     display: inline-block;
@@ -265,15 +267,14 @@ div.input-tip {
     font-size: var(--font-size);
     letter-spacing: var(--letter-spacing);
     color: var(--text-color);
-    transition-delay: 5s;
-    transition: opacity 0.8s;
     right: 0;
     bottom: var(--margin-bottom);
 }
 
 div.input-tip.active:not(.block) {
     --tip-opacity: 1;
-    transition-delay: 4s;
+    --transition-input-tip: opacity 0.8s;
+    --transition-delay: 5s;
 
     overflow: hidden;
     white-space: nowrap;
@@ -284,13 +285,16 @@ div.input-tip.active:not(.block) {
     animation-direction: normal, alternate;
     animation-timing-function: linear, linear;
     animation-delay: 9s, 9s;
+
+    transition: var(--transition-input-tip);
+    transition-delay: var(--transition-delay);
 }
 
 div.input-tip:has(~ input:valid:required),
 div.input-tip:has(~ input:not(:placeholder-shown):valid:optional) {
-    --tip-opacity: 1;
-
-    transition-delay: 0.3s;
+    --tip-opacity: 0;
+    --transition-input-tip: opacity 0s;
+    --transition-delay: 0;
 }
 
 @keyframes translate-text {

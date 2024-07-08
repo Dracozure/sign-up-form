@@ -32,11 +32,17 @@ inputs.forEach(input => {
     });
 
     input.addEventListener('input', (event) => {
-        if (event.target.validity.valid) {
-            const inputTipElement = input.parentElement.querySelector('.input-tip');
+        const input = event.target;
+        const inputTipElement = input.parentElement.querySelector('.input-tip');
+        const requiredELement = input.hasAttribute('required')
 
-            inputTipElement.classList.remove('active');
-            animationIteration = 0;
+        if (input.validity.valid) {
+            if (requiredELement || !(input.value === '')) {
+                inputTipElement.classList.remove('active');
+                animationIteration = 0;
+            }
+        } else if (!inputTipElement.classList.contains('active')) {
+            inputTipElement.classList.add('active');
         }
     });
 
