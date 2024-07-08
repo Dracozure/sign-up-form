@@ -271,7 +271,7 @@ div.input-tip {
     bottom: var(--margin-bottom);
 }
 
-.input-tip.active:not(.block) {
+div.input-tip.active:not(.block) {
     --tip-opacity: 1;
     transition-delay: 4s;
 
@@ -286,7 +286,8 @@ div.input-tip {
     animation-delay: 9s, 9s;
 }
 
-div.input-tip:has(~ input:valid):not(.block) {
+div.input-tip:has(~ input:valid:required),
+div.input-tip:has(~ input:not(:placeholder-shown):valid:optional) {
     --tip-opacity: 0;
 
     transition-delay: 0.3s;
