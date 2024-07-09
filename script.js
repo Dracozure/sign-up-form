@@ -39,9 +39,6 @@ inputs.forEach(input => {
 
         if (inputType === 'pwd') {
             updatePassWarning();
-        }
-
-        if (inputType === 'confirm-pwd') {
             updatePasswordMatchCheck();
         }
 

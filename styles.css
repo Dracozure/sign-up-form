@@ -27,7 +27,7 @@
     --label-padding: 10px;
 
     --border-style: transparent;
-    --border-color: #a79494;
+    --border-color: #000000;
 
     --input-tip-first: "Ex: Marley";
     --input-tip-last: "Ex: Anderson";
@@ -42,7 +42,8 @@
 
 :root.dark {
     --form-background-color: #000000;
-    --text-color: #ffffff;
+    --text-color: #e2d8d8;
+    --border-color: #ffffff;
 }
 
 body {
@@ -129,6 +130,8 @@ form > h3 {
 }
 
 input {
+    --border-style: 1px solid var(--border-color);
+
     width: 300px;
     height: 35px;
     appearance: none;
@@ -138,15 +141,12 @@ input {
     outline: none;
     border-radius: 6px;
     border: transparent;
-    border-bottom: 1px solid var(--border-color);
+    border-bottom: var(--border-style);
     transition: border 0.6s;
 }
 
 input:not(:placeholder-shown),
 input:focus {
-    --border-style: 1px solid var(--border-color);
-    --border-color: #000000;
-
     border-top: var(--border-style);
     border-left: var(--border-style);
     border-right: var(--border-style);
@@ -344,3 +344,6 @@ div.input-tip.email::after {
 div.input-tip.phone::after {
     content: attr(data-after);
 }
+
+/* Submit Button Section */
+
