@@ -206,6 +206,11 @@ label:has(+ input:not(:placeholder-shown):not(:focus):invalid) {
 }
 
 .input-warning.pass {
+    --warning-pass-lower: var(--warning-pass-symbol);
+    --warning-pass-upper: var(--warning-pass-symbol);
+    --warning-pass-num: var(--warning-pass-symbol);
+    --warning-pass-special-char: var(--warning-pass-symbol);
+
     display: flex;
     flex-direction: column;
     text-wrap: nowrap;
@@ -220,11 +225,26 @@ input:not(:placeholder-shown):invalid + .input-warning {
 .input-warning.pass > div::before {
     display: inline-block;
     content: '';
-    background-image: var(--warning-pass-symbol);
     background-size: 1em;
     margin-right: 0.3em;
     width: 1em;
     height: 1em;
+}
+
+.input-warning.pass .lower::before {
+    background-image: var(--warning-pass-lower);
+}
+
+.input-warning.pass .upper::before {
+    background-image: var(--warning-pass-upper);
+}
+
+.input-warning.pass .num::before {
+    background-image: var(--warning-pass-num);
+}
+
+.input-warning.pass .special-char::before {
+    background-image: var(--warning-pass-special-char);
 }
 
 .input-warning:not(.pass)::before {

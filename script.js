@@ -34,7 +34,16 @@ inputs.forEach(input => {
     input.addEventListener('input', (event) => {
         const input = event.target;
         const inputTipElement = input.parentElement.querySelector('.input-tip');
-        const requiredELement = input.hasAttribute('required')
+        const requiredELement = input.hasAttribute('required');
+        const inputType = input.id;
+
+        if (inputType === 'pwd') {
+            updatePassWarning();
+        }
+
+        if (inputType === 'confirm-pwd') {
+            updatePasswordMatchCheck();
+        }
 
         if (input.validity.valid) {
             if (requiredELement || !(input.value === '')) {
@@ -64,3 +73,43 @@ inputs.forEach(input => {
         animationIteration++;
     });
 });
+
+function updatePassWarning(iteration = 0) {
+    const inputWarningPass = document.querySelector('.input-warning.pass');
+    const inputStrArr = document.getElementById('pwd').value.split('');
+    const regexPatternLower = new RegExp("[a-z]");
+    const regexPatternUpper = new RegExp("[A-Z]");
+    const regexPatternNumber = new RegExp("[0-9]");
+    const regexPatternSpecialChar = new RegExp("[A-Za-z0-9]");
+    const checkMarkUrl = 'url(./assets/img/checkmark.png)';
+    const crossmarkUrl = 'url(./assets/img/crossmark.jpg)';
+
+    const hasLower = inputStrArr.filter(letter => regexPatternLower.test(letter)).length !== 0;
+    const hasUpper = inputStrArr.filter(letter => regexPatternUpper.test(letter)).length !== 0;
+    const hasNumber = inputStrArr.filter(letter => regexPatternNumber.test(letter)).length !== 0;
+    const hasSpecialChar = inputStrArr.filter(letter => !regexPatternSpecialChar.test(letter)).length !== 0;
+
+    if (hasLower) {
+        inputWarningPass.style.setProperty('--warning-pass-lower', checkMarkUrl)
+    } else {
+        inputWarningPass.style.setProperty('--warning-pass-lower', crossmarkUrl)
+    } 
+
+    if (hasUpper) {
+        inputWarningPass.style.setProperty('--warning-pass-upper', checkMarkUrl)
+    } else {
+        inputWarningPass.style.setProperty('--warning-pass-upper', crossmarkUrl)
+    } 
+
+    if (hasNumber) {
+        inputWarningPass.style.setProperty('--warning-pass-num', checkMarkUrl)
+    } else {
+        inputWarningPass.style.setProperty('--warning-pass-num', crossmarkUrl)
+    } 
+
+    if (hasSpecialChar) {
+        inputWarningPass.style.setProperty('--warning-pass-special-char', checkMarkUrl)
+    } else {
+        inputWarningPass.style.setProperty('--warning-pass-special-char', crossmarkUrl)
+    } 
+}
