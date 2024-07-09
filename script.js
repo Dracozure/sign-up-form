@@ -113,3 +113,14 @@ function updatePassWarning(iteration = 0) {
         inputWarningPass.style.setProperty('--warning-pass-special-char', crossmarkUrl)
     } 
 }
+
+function updatePasswordMatchCheck() {
+    const inputPass = document.getElementById('pwd');
+    const inputPassConfirm = document.getElementById('confirm-pwd');
+
+    if (inputPassConfirm.value === '' || (inputPass.value === inputPassConfirm.value)) {
+        inputPassConfirm.setCustomValidity('');
+    } else {
+        inputPassConfirm.setCustomValidity('Passwords do not match');
+    }
+}
