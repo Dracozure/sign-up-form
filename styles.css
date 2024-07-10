@@ -19,7 +19,7 @@
     --wallpaper-background-color: #8fcf8f;
     --input-tip-text-color: #6e6b6b;
     --text-color: #000000;
-    --row-gap: 7em;
+    --row-gap: 7.1em;
     --column-gap: 12em;
 
     --padding: 1.8em;
@@ -150,6 +150,10 @@ img.day-mode {
 }
 
 form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
     position: relative;
     flex-direction: column;
     align-items: center;
@@ -278,6 +282,7 @@ label:has(+ input:not(:placeholder-shown):not(:focus):invalid) {
     --warning-pass-upper: var(--warning-pass-symbol);
     --warning-pass-num: var(--warning-pass-symbol);
     --warning-pass-special-char: var(--warning-pass-symbol);
+    --warning-pass-min-chars: var(--warning-pass-symbol);
 
     display: flex;
     flex-direction: column;
@@ -299,20 +304,12 @@ input:not(:placeholder-shown):invalid + .input-warning {
     height: 1em;
 }
 
-.input-warning.pass .lower::before {
+.input-warning.pass .lower::before,
+.input-warning.pass .upper::before,
+.input-warning.pass .num::before,
+.input-warning.pass .special-char::before,
+.input-warning.pass .min-8-chars::before {
     background-image: var(--warning-pass-lower);
-}
-
-.input-warning.pass .upper::before {
-    background-image: var(--warning-pass-upper);
-}
-
-.input-warning.pass .num::before {
-    background-image: var(--warning-pass-num);
-}
-
-.input-warning.pass .special-char::before {
-    background-image: var(--warning-pass-special-char);
 }
 
 .input-warning:not(.pass)::before {
@@ -415,19 +412,7 @@ div.input-tip.phone::after {
 
 /* Submit Button Section */
 
-.submit-box {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: fit-content;
-    isolation: isolate;
-}
-
 button[type="submit"] {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
     margin: 1rem;
     padding: 0.8rem 0.5rem;
     font-size: 2rem;
@@ -440,40 +425,13 @@ button[type="submit"] {
     transition: background-color 0.33s ease-in-out;
 }
 
-button[type="submit"]::after {
-    --shadow-sizing: 400px;
-    --submit-btn-bg: radial-gradient(var(--shadow-sizing) circle, 
-    rgba(65, 56, 56, 0.03), 
-    rgba(56, 56, 56, 0.03), 
-    rgba(0, 0, 0, 0.03), transparent 45%);
-
-    position: absolute;
-    width: var(--shadow-sizing);
-    height: var(--shadow-sizing);
-    content: '';
-    z-index: -1;
-    background: var(--submit-btn-bg);
-    pointer-events: none;
-    opacity: var(--shadow-opacity, 0);
-
-    transition: opacity 0.35s ease-in-out;
-}
-
-.theme-mode.dark + form button[type="submit"]::after {
-    --submit-btn-bg: radial-gradient(var(--shadow-sizing) circle, 
-    rgba(199, 199, 199, 0.08), 
-    rgba(116, 110, 110, 0.05), 
-    rgba(255, 255, 255, 0.08), transparent 45%);
-}
-
 .theme-mode + form button[type="submit"]:hover {
     --submit-btn-bg-color: #e0e0e0;
+
+
+    transform: translate3d(0px, 0px, -250px);
 }
 
 .theme-mode.dark + form button[type="submit"]:hover {
     --submit-btn-bg-color: #2b2b2b;
 }
-
-button[type="submit"]:hover::after { 
-    --shadow-opacity: 1;
-} 
