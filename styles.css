@@ -29,7 +29,7 @@
     --label-padding: 10px;
     --label-background-color: #90ee90;
     --label-color: #000000;
-    --label-font-weight: normal;
+    --label-font-weight: bold;
 
     --border-style: transparent;
     --border-color: #000000;
@@ -52,7 +52,6 @@
     --label-color: #ffffff;
     --text-color: #ffffff;
     --label-background-color: #335533;
-    --label-font-weight: bold;
     --input-tip-text-color: #cfc7c7;
 }
 
@@ -229,7 +228,6 @@ label {
     padding: var(--label-padding);
     margin-bottom: var(--label-margin-bottom);
     letter-spacing: var(--letter-spacing);
-    background-color: none;
     margin-left: var(--label-margin-left);
     font-size: var(--font-size);
     font-weight: var(--label-font-weight);
@@ -260,7 +258,7 @@ label:has(+ input:placeholder-shown):not([for="phone"])::before {
 /* Form Validation Section */
 
 label:has(+ input:not(:placeholder-shown):not(:focus):invalid) {
-    --label-background-color: #ee4e4e;
+    --label-background-color: #c75b5b;
 }
 
 /* Form Warning Section */
@@ -417,3 +415,65 @@ div.input-tip.phone::after {
 
 /* Submit Button Section */
 
+.submit-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    isolation: isolate;
+}
+
+button[type="submit"] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin: 1rem;
+    padding: 0.8rem 0.5rem;
+    font-size: 2rem;
+    border-radius: 10px;
+    letter-spacing: 0.3rem;
+    border: 5px solid var(--text-color);
+    color: var(--text-color);
+    background-color: var(--submit-btn-bg-color, var(--theme-background-color));
+
+    transition: background-color 0.33s ease-in-out;
+}
+
+button[type="submit"]::after {
+    --shadow-sizing: 400px;
+    --submit-btn-bg: radial-gradient(var(--shadow-sizing) circle, 
+    rgba(65, 56, 56, 0.03), 
+    rgba(56, 56, 56, 0.03), 
+    rgba(0, 0, 0, 0.03), transparent 45%);
+
+    position: absolute;
+    width: var(--shadow-sizing);
+    height: var(--shadow-sizing);
+    content: '';
+    z-index: -1;
+    background: var(--submit-btn-bg);
+    pointer-events: none;
+    opacity: var(--shadow-opacity, 0);
+
+    transition: opacity 0.35s ease-in-out;
+}
+
+.theme-mode.dark + form button[type="submit"]::after {
+    --submit-btn-bg: radial-gradient(var(--shadow-sizing) circle, 
+    rgba(199, 199, 199, 0.08), 
+    rgba(116, 110, 110, 0.05), 
+    rgba(255, 255, 255, 0.08), transparent 45%);
+}
+
+.theme-mode + form button[type="submit"]:hover {
+    --submit-btn-bg-color: #e0e0e0;
+}
+
+.theme-mode.dark + form button[type="submit"]:hover {
+    --submit-btn-bg-color: #2b2b2b;
+}
+
+button[type="submit"]:hover::after { 
+    --shadow-opacity: 1;
+} 
