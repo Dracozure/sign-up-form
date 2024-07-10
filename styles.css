@@ -17,8 +17,8 @@
 
     --theme-background-color: #ffffff;
     --wallpaper-background-color: #8fcf8f;
-    --label-backgorund-color: none;
-    --text-color: #6e6b6b;
+    --input-tip-text-color: #6e6b6b;
+    --text-color: #000000;
     --row-gap: 7em;
     --column-gap: 12em;
 
@@ -27,6 +27,9 @@
 
     --label-margin-bottom: -10px;
     --label-padding: 10px;
+    --label-background-color: #90ee90;
+    --label-color: #000000;
+    --label-font-weight: normal;
 
     --border-style: transparent;
     --border-color: #000000;
@@ -44,9 +47,12 @@
 
 :root.dark {
     --theme-background-color: #000000;
-    --text-color: #e2d8d8;
     --border-color: #ffffff;
     --title-color: #ffffff;
+    --label-color: #ffffff;
+    --text-color: #ffffff;
+    --label-background-color: #335533;
+    --label-font-weight: bold;
 }
 
 body {
@@ -197,6 +203,8 @@ input {
     border: transparent;
     border-bottom: var(--border-style);
     transition: border 0.6s;
+    background-color: var(--theme-background-color);
+    color: var(--text-color);
 }
 
 input:not(:placeholder-shown),
@@ -215,24 +223,24 @@ label {
     padding: var(--label-padding);
     margin-bottom: var(--label-margin-bottom);
     letter-spacing: var(--letter-spacing);
-    background-color: var(--label-background-color);
+    background-color: none;
     margin-left: var(--label-margin-left);
     font-size: var(--font-size);
     font-weight: var(--label-font-weight);
+    color: var(--label-color);
     transition: all 0.3s;
 }
 
 label:has(+ input:not(:placeholder-shown)),
 div:focus-within > label {
-    --label-background-color: #90ee90;
-    
     --label-margin-bottom: 0px;
     --label-padding: 0.3rem 0.6rem;
     --label-margin-left: 6px;
     --font-size: 0.85rem;
-    --label-font-weight: bold;
-
+    
+    background-color: var(--label-background-color);
     transform: translateY(-1.35em);
+    font-weight: bold;
 }
 
 /* If input is empty and isn't type "tel" */
@@ -254,8 +262,9 @@ label:has(+ input:not(:placeholder-shown):not(:focus):invalid) {
 .input-warning {
     position: absolute;
     margin-top: 0.8rem;
-    letter-spacing: calc(var(--letter-spacing) - 0.21em);
+    letter-spacing: calc(var(--letter-spacing) - 0.16em);
     opacity: var(--warning-opacity);
+    color: var(--text-color);
 
     transition: opacity 0.5s ease;
 }
@@ -341,7 +350,7 @@ div.input-tip {
     opacity: var(--tip-opacity);
     font-size: var(--font-size);
     letter-spacing: var(--letter-spacing);
-    color: var(--text-color);
+    color: var(--input-tip-text-color);
     right: 0;
     bottom: var(--margin-bottom);
 }

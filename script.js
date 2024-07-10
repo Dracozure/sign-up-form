@@ -59,6 +59,10 @@ inputs.forEach(input => {
             updatePasswordMatchCheck();
         }
 
+        if (inputType === 'confirm-pwd') {
+            updatePasswordMatchCheck();
+        }
+
         if (input.validity.valid) {
             if (requiredELement || !(input.value === '')) {
                 inputTipElement.classList.remove('active');
