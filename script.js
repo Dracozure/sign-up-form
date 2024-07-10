@@ -7,6 +7,23 @@ let wordLists = [
 ];
 let animationIteration = 0;
 
+const themeSwitchButton = document.querySelector('.theme-mode');
+const dayModeElement = document.querySelector('.day-mode');
+const nightModeElement = document.querySelector('.night-mode');
+
+themeSwitchButton.addEventListener('click', () => {
+    if (!document.documentElement.classList.contains('dark')) {
+        dayModeElement.style.setProperty('opacity', 0);
+        nightModeElement.style.setProperty('opacity', 1);
+    } else {
+        dayModeElement.style.setProperty('opacity', 1);
+        nightModeElement.style.setProperty('opacity', 0);
+    }
+
+    themeSwitchButton.classList.toggle('dark');
+    document.documentElement.classList.toggle('dark');
+});
+
 const inputTipFirst = document.querySelector('.input-tip.first');
 const inputTipLast = document.querySelector('.input-tip.last');
 const inputTipEmail = document.querySelector('.input-tip.email');

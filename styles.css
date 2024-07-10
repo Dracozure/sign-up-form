@@ -13,9 +13,11 @@
     --div-display: flex;
     --title-padding: 1.5rem;
     --title-font-size: 1.3rem;
+    --title-color: #000000;
 
-    --form-background-color: #ffffff;
+    --theme-background-color: #ffffff;
     --wallpaper-background-color: #8fcf8f;
+    --label-backgorund-color: none;
     --text-color: #6e6b6b;
     --row-gap: 7em;
     --column-gap: 12em;
@@ -41,9 +43,10 @@
 }
 
 :root.dark {
-    --form-background-color: #000000;
+    --theme-background-color: #000000;
     --text-color: #e2d8d8;
     --border-color: #ffffff;
+    --title-color: #ffffff;
 }
 
 body {
@@ -51,6 +54,56 @@ body {
     width: 100vw;
     height: 100vh;
     flex-flow: row wrap;
+}
+
+.form-container {
+    position: relative;
+}
+
+/* Theme Mode Section */
+
+.theme-mode {
+    --background-hover-night: #776f6f; 
+    --background-hover-day: #dad3d3;
+
+    display: flex;
+    position: absolute;
+    top: 2rem;
+    height: auto;
+    background-color: var(--theme-background-color);
+    padding: 0;
+    width: 2.4rem;
+    height: 2.4rem;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #808080;
+
+    transition: background-color 0.3s ease;
+}
+
+.theme-mode:hover {
+    background-color: var(--background-hover-day);
+}
+
+.theme-mode.dark:hover {
+    background-color: var(--background-hover-night);
+}
+
+.theme-mode > img {
+    position: absolute;
+    width: 70%;
+    opacity: var(--theme-opacity);
+
+    transition: opacity 0.5s ease;
+}
+
+img.night-mode {
+    --theme-opacity: 0;
+}
+
+img.day-mode {
+    --theme-opacity: 1;
 }
 
 /* Wallpaper Section */
@@ -79,6 +132,7 @@ body {
 
 .form-container {
     display: var(--div-display);
+    background-color: var(--theme-background-color);
     flex: 3;
     justify-content: center;
     align-items: center;
@@ -117,7 +171,6 @@ h3 {
     padding: var(--title-padding);
     font-size: var(--title-font-size);
     letter-spacing: var(--letter-spacing);
-
 }
 
 /* Form Inputs Section */
@@ -126,6 +179,7 @@ form > h3 {
     --title-font-size: 2.7rem;
     --title-padding: 5rem;
 
+    color: var(--title-color);
     padding: var(--title-padding) 0 0 0;
 }
 
@@ -170,9 +224,10 @@ label {
 
 label:has(+ input:not(:placeholder-shown)),
 div:focus-within > label {
+    --label-background-color: #90ee90;
+    
     --label-margin-bottom: 0px;
     --label-padding: 0.3rem 0.6rem;
-    --label-background-color: lightgreen;
     --label-margin-left: 6px;
     --font-size: 0.85rem;
     --label-font-weight: bold;
