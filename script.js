@@ -100,7 +100,7 @@ function updatePassWarning(iteration = 0) {
     const regexPatternNumber = new RegExp("[0-9]");
     const regexPatternSpecialChar = new RegExp("[A-Za-z0-9]");
     const checkMarkUrl = 'url(./assets/img/checkmark.png)';
-    const crossmarkUrl = 'url(./assets/img/crossmark.jpg)';
+    const crossmarkUrl = 'url(./assets/img/crossmark.png)';
 
     const hasLower = inputStrArr.filter(letter => regexPatternLower.test(letter)).length !== 0;
     const hasUpper = inputStrArr.filter(letter => regexPatternUpper.test(letter)).length !== 0;

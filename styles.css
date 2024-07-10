@@ -40,7 +40,7 @@
     --input-tip-phone: "123-456-7890";
 
     --warning-opacity: 0;
-    --warning-pass-symbol: url(./assets/img/crossmark.jpg);
+    --warning-pass-symbol: url(./assets/img/crossmark.png);
 
     font-family: "Helvetica Neue", sans-serif;
 }
@@ -53,6 +53,7 @@
     --text-color: #ffffff;
     --label-background-color: #335533;
     --label-font-weight: bold;
+    --input-tip-text-color: #cfc7c7;
 }
 
 body {
@@ -73,11 +74,12 @@ body {
     --background-hover-day: #dad3d3;
 
     display: flex;
-    position: absolute;
-    top: 2rem;
+    position: relative;
     height: auto;
     background-color: var(--theme-background-color);
     padding: 0;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
     width: 2.4rem;
     height: 2.4rem;
     border-radius: 50%;
@@ -86,6 +88,10 @@ body {
     border: 2px solid #808080;
 
     transition: background-color 0.3s ease;
+}
+
+.form-container {
+    flex-direction: column;
 }
 
 .theme-mode:hover {
@@ -177,16 +183,14 @@ h3 {
     padding: var(--title-padding);
     font-size: var(--title-font-size);
     letter-spacing: var(--letter-spacing);
+    color: var(--title-color);
 }
 
 /* Form Inputs Section */
 
 form > h3 {
     --title-font-size: 2.7rem;
-    --title-padding: 5rem;
-
-    color: var(--title-color);
-    padding: var(--title-padding) 0 0 0;
+    --title-padding: 0;
 }
 
 input {
