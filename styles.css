@@ -505,3 +505,15 @@ button[type="submit"]:active::before {
 
     transition: transform 0.2s ease;
 }
+
+@media only screen and (max-width: 375px) {
+    form {
+        padding: 1rem;
+    }
+}
+
+@media only screen and (max-width: 641px) {
+    .wallpaper-container {
+        border: none;
+    }
+}

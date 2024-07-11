@@ -159,9 +159,9 @@ function toggleTitleTheme(mode) {
     const titleSpan2 = document.querySelector('.title-span-2');
     const alphabet = 'abcdefghijklmnopqrstuvwxyz';
     const titleSpan1VOrgValue = (mode === 'day') ? 'All day' : 'All night';
-    const titleSpan2VOrgValue = (mode === 'day') ? 'Everyday' : 'Every night';
+    const titleSpan2VOrgValue = (mode === 'day') ? 'Today' : 'Tonight';
     const titleSpan1Length = (mode === 'day') ? 7 : 9;
-    const titleSpan2Length = (mode === 'day') ? 8 : 11;
+    const titleSpan2Length = (mode === 'day') ? 5 : 7;
 
 
     let titleSpan1Iterations = 0;
