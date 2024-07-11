@@ -19,7 +19,7 @@
     --wallpaper-background-color: #8fcf8f;
     --input-tip-text-color: #6e6b6b;
     --text-color: #000000;
-    --row-gap: 7.1em;
+    --row-gap: 6.5em;
     --column-gap: 12em;
 
     --padding: 1.8em;
@@ -150,10 +150,7 @@ img.day-mode {
 }
 
 form {
-    display: flex;
-    align-items: center;
     justify-content: center;
-
     position: relative;
     flex-direction: column;
     align-items: center;
@@ -173,7 +170,7 @@ div.form-col-1,
 div.form-col-2 {
     flex-direction: column;
     display: var(--div-display);
-    row-gap: var(--row-gap);
+    row-gap: calc(var(--row-gap) + 1.8rem);
 }
 
 h1 {
@@ -194,6 +191,16 @@ h3 {
 form > h3 {
     --title-font-size: 2.7rem;
     --title-padding: 0;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5ch 1ch;
+}
+
+form > h3 span {
+    text-wrap: nowrap;
+    width: fit-content;
 }
 
 input {
@@ -304,12 +311,24 @@ input:not(:placeholder-shown):invalid + .input-warning {
     height: 1em;
 }
 
-.input-warning.pass .lower::before,
-.input-warning.pass .upper::before,
-.input-warning.pass .num::before,
-.input-warning.pass .special-char::before,
 .input-warning.pass .min-8-chars::before {
+    background-image: var(--warning-pass-min-chars);
+}
+
+.input-warning.pass .lower::before {
     background-image: var(--warning-pass-lower);
+}
+
+.input-warning.pass .upper::before {
+    background-image: var(--warning-pass-upper);
+}
+
+.input-warning.pass .num::before {
+    background-image: var(--warning-pass-num);
+}
+
+.input-warning.pass .special-char::before {
+    background-image: var(--warning-pass-special-char);
 }
 
 .input-warning:not(.pass)::before {
@@ -424,7 +443,6 @@ button[type="submit"] {
     text-align: center;
     text-decoration: none;
     width: fit-content;
-    margin-top: -1rem;
     margin-bottom: 3.5rem;
 
     text-transform: uppercase;

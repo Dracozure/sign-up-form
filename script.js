@@ -92,7 +92,7 @@ inputs.forEach(input => {
     });
 });
 
-function updatePassWarning(iteration = 0) {
+function updatePassWarning() {
     const inputWarningPass = document.querySelector('.input-warning.pass');
     const inputStrArr = document.getElementById('pwd').value.split('');
     const regexPatternLower = new RegExp("[a-z]");
@@ -106,6 +106,7 @@ function updatePassWarning(iteration = 0) {
     const hasUpper = inputStrArr.filter(letter => regexPatternUpper.test(letter)).length !== 0;
     const hasNumber = inputStrArr.filter(letter => regexPatternNumber.test(letter)).length !== 0;
     const hasSpecialChar = inputStrArr.filter(letter => !regexPatternSpecialChar.test(letter)).length !== 0;
+    const atLeast8Chars = inputStrArr.length >= 8;
 
     if (hasLower) {
         inputWarningPass.style.setProperty('--warning-pass-lower', checkMarkUrl)
@@ -129,6 +130,12 @@ function updatePassWarning(iteration = 0) {
         inputWarningPass.style.setProperty('--warning-pass-special-char', checkMarkUrl)
     } else {
         inputWarningPass.style.setProperty('--warning-pass-special-char', crossmarkUrl)
+    } 
+
+    if (atLeast8Chars) {
+        inputWarningPass.style.setProperty('--warning-pass-min-chars', checkMarkUrl);
+    } else {
+        inputWarningPass.style.setProperty('--warning-pass-min-chars', crossmarkUrl);
     } 
 }
 
