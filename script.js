@@ -15,9 +15,13 @@ themeSwitchButton.addEventListener('click', () => {
     if (!document.documentElement.classList.contains('dark')) {
         dayModeElement.style.setProperty('opacity', 0);
         nightModeElement.style.setProperty('opacity', 1);
+
+        toggleTitleTheme('night')
     } else {
         dayModeElement.style.setProperty('opacity', 1);
         nightModeElement.style.setProperty('opacity', 0);
+
+        toggleTitleTheme('day')
     }
 
     themeSwitchButton.classList.toggle('dark');
@@ -148,4 +152,53 @@ function updatePasswordMatchCheck() {
     } else {
         inputPassConfirm.setCustomValidity('Passwords do not match');
     }
+}
+
+function toggleTitleTheme(mode) {
+    const titleSpan1 = document.querySelector('.title-span-1');
+    const titleSpan2 = document.querySelector('.title-span-2');
+    const alphabet = 'abcdefghijklmnopqrstuvwxyz';
+    const titleSpan1VOrgValue = (mode === 'day') ? 'All day' : 'All night';
+    const titleSpan2VOrgValue = (mode === 'day') ? 'Everyday' : 'Every night';
+    const titleSpan1Length = (mode === 'day') ? 7 : 9;
+    const titleSpan2Length = (mode === 'day') ? 8 : 11;
+
+
+    let titleSpan1Iterations = 0;
+    let titleSpan2Iterations = 0;
+
+    const titleSpan1Int = setInterval(() => {
+        if (titleSpan1Iterations === titleSpan1Length) {
+            clearInterval(titleSpan1Int);
+        }
+
+        titleSpan1.innerText = titleSpan1VOrgValue.split('')
+        .map((letter, index) => {
+            if (titleSpan1Iterations > index) {
+                return titleSpan1VOrgValue[index];
+            }
+            
+            return alphabet[Math.floor(Math.random() * 26)]
+        }).join('') + '.';
+
+        titleSpan1Iterations += 1;
+    }, 25);
+
+
+    const titleSpan2Int = setInterval(() => {
+        if (titleSpan2Iterations === titleSpan2Length) {
+            clearInterval(titleSpan2Int);
+        }
+
+        titleSpan2.innerText = titleSpan2VOrgValue.split('')
+        .map((letter, index) => {
+            if (titleSpan2Iterations > index) {
+                return titleSpan2VOrgValue[index];
+            }
+            
+            return alphabet[Math.floor(Math.random() * 26)]
+        }).join('') + '.';
+
+        titleSpan2Iterations += 1;
+    }, 25);
 }
