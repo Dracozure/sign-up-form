@@ -139,11 +139,6 @@ img.day-mode {
     flex-flow: column wrap;
 }
 
-.wallpaper-container h1,
-.wallpaper-container h3 {
-    letter-spacing: var(--letter-spacing);
-}
-
 .wallpaper-container h3 {
     text-align: center;
     margin-top: auto;
@@ -185,7 +180,12 @@ div.form-col-2 {
 }
 
 h1 {
-    padding: var(--padding);
+    padding: 4rem 1rem;
+    width: 100%;
+    font-size: 4.7rem;
+    text-align: center;
+    text-shadow: 2px 2px #d4d4d4;
+    letter-spacing: var(--letter-spacing);
 }
 
 h3 {
